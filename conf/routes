@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+GET     /api/welcome/:firstName/:lastName          controllers.HomeController.welcome(firstName : String,lastName : String)
+
+
+
+
+
+# BookStoreApp API
+GET     /api/books                        controllers.BooksController.index
+POST    /api/books/create                 controllers.BooksController.save
+PUT     /api/books/edit                   controllers.BooksController.update
+GET     /api/books/create                 controllers.BooksController.create
+GET     /api/books/edit/:id               controllers.BooksController.edit(id : Integer)
+DELETE     /api/books/delete/:id             controllers.BooksController.destroy(id:Integer)
+GET     /api/books/:id                    controllers.BooksController.show(id : Integer)

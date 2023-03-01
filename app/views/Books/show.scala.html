@@ -1,0 +1,33 @@
+@(book : Book)
+
+@layout(book.title){
+    <div>
+        <h2>@book.title</h2>
+    <p>Price : @book.price</p>
+    <p>Author : @book.author</p>
+    <a href="@routes.BooksController.edit(book.id)" class="btn btn-primary">Edit Book</a>
+
+    <button class="btn btn-danger" onclick="sendDeleteRequest('@routes.BooksController.destroy(book.id)',
+                                                             '@routes.BooksController.index()'
+    )">Delete Book</button>
+    </div>
+    
+
+}
+
+@*
+
+<html>
+    <head>
+        <title>@book.title</title>
+    </head>
+    <body>
+        <h2>@book.title</h2>
+        <p>Price : @book.price</p>
+        <p>Author : @book.author</p>
+        <a href="@routes.BooksController.edit(book.id)" class="btn btn-primary">Edit Book</a>
+        <a href="@routes.BooksController.destroy(book.id)" class="btn btn-danger">Delete Book</a>
+    </body>
+</html>
+
+*@
